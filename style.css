@@ -1,87 +1,88 @@
 body {
-    background: rgb(125, 198, 205);
-    color: rgb(45, 45, 45);
-    padding: 10px;
-    font-family: arial;
+  background: rgb(57, 9, 251);
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  font-family: arial;
 }
 #all-contents {
   max-width: 800px;
-    margin: auto;
+  margin: auto;
 }
 
 /* navigation menu */
 nav {
-    background: rgb(239, 80, 41);
-   margin: 0 auto;
-    display: flex;
-    padding: 10px;
+  background: rgb(232, 75, 18);
+  margin: 0 auto;
+  display: flex;
+  padding: 10px;
 }
 h1 {
-    display: flex;
-    align-items: center;
-    color: white;
-    flex: 1;
-    margin: 0;
+  display: flex;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  flex: 1;
+  margin: 0;
 }
 #nav-ul {
-    list-style-image: none;
+  list-style-image: none;
 }
 .nav-li {
-    display: inline-block;
-    padding: 0 10px;
+  display: inline-block;
+  padding: 0 10px;
 }
 a {
-    text-decoration: none;
-    color: #fff;
+  text-decoration: none;
+  color: #ffffff;
 }
 
 /* main container area beneath menu */
 main {
-    background: rgb(245, 238, 219);
-    display: flex;
+  background: rgb(200, 200, 200);
+  display: flex;
 }
 .sidebar {
-    margin-right: 25px;
-    padding: 10px;
+  margin-right: 25px;
+  padding: 10px;
 }
 .sidebar-img {
-    width: 200px;
+  width: 200px;
 }
 .content {
-    flex: 1;
-    padding: 15px;
+  flex: 1;
+  padding: 15px;
 }
 
 /* portfolio styles */
 #interests {
-    border: 4px silver ridge;
-    padding: 8px;
+  border: 4px silver ridge;
+  padding: 8px;
 }
-h2, h3 {
-    margin: 0px;
+h2,
+h3 {
+  margin: 0px;
 }
-    /* portfolio styles */
-    .content h1 {
-    color: black;
+/* portfolio styles */
+.content h1 {
+  color: rgb(0, 0, 0);
 }
 
 #portfolio {
-    list-style-type: none;
-    padding-left: 0;
+  list-style-type: none;
+  padding-left: 0;
 }
 
 #portfolio li {
-    background: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;
+  background: #ffffff; /*Link background*/
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 #portfolio li:hover {
-    background: #eee;
+  background: #eee;
 }
 
 #portfolio a {
-    text-decoration: none;
-    color: #454545;
+  text-decoration: none;
+  color: #454545;
 }
