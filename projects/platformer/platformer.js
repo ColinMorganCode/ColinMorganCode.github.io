@@ -47,9 +47,10 @@ $(function () {
 
     createPlatform(1200, 400, 50, 400); //spire 2
     createPlatform(1000, 500, 25, 25); //bridge 2
-    createPlatform(700, 300, 200, 25);
-    createPlatform(5000, 500, 500, 500);
-    createPlatform(5000, 500, 500, 500);
+    createPlatform(800, 250, 400, 25); //overhang 1
+    createPlatform(1300, 325, 100, 25); //overhang step
+    createPlatform(300, 250, 300, 25); //overhang 2
+    createPlatform(200, 125, 100, 25); //final platform
 
     // TODO 2
     // Create collectables
@@ -57,9 +58,10 @@ $(function () {
     // Your collectable choices are 'database' 'diamond' 'grace' 'kennedi' 'max' and 'steve'; more can be added if you wish
     // example usage: createCollectable(type, x, y, gravity, bounce)
 
-    createCollectable("database", 995, 480, 1, 1);
+    createCollectable("database", 995, 450, 1, 1); //2
+    createCollectable("diamond", 400, 325, 1, 1); //1
+    createCollectable("grace", 200, 50, 1, 1); //3
 
-    
     // TODO 3
     // Create cannons
     // You must decide the wall you want the cannon on, the position on the wall, and the time between shots in milliseconds
@@ -68,7 +70,7 @@ $(function () {
     
     createCannon("right", 775, 0, 500, 50);
     createCannon("top", 1000, 1000, 50, 20);
-
+    createCannon("right", 225, 1100, 20, 10);
     
     /////////////////////////////////////////////////
     //////////ONLY CHANGE ABOVE THIS POINT///////////
