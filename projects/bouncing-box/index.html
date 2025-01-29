@@ -6,6 +6,14 @@
 	<title>Bouncing Box</title>
 	<script src="jquery.min.js"></script>
 	<style>
+		body {
+ 			background-image: url("img/5NYWEOSU3ZGRLOTKFE2ZMQU52M.avif");
+			 -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+		}
+
 		.box {
 			width: 70px;
 			height: 70px;
@@ -44,6 +52,7 @@
 			var box = jQuery('.box');	// reference to the HTML .box element
 			var board = jQuery('.board');	// reference to the HTML .board element
 			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
+			var boardHeight = jQuery(window).height();
 
 			// Every 50 milliseconds, call the update Function (see below)
 			setInterval(update, 50);
@@ -52,8 +61,9 @@
 			box.on('click', handleBoxClick);
 
 			// moves the Box to a new position on the screen along the X-Axis
-			function moveBoxTo(newPositionX) {
+			function moveBoxTo(newPositionX, newPositionY) {
 				box.css("left", newPositionX);
+				box.css("top", newPositionY);
 			}
 
 			// changes the text displayed on the Box
@@ -67,7 +77,9 @@
 
 			// TODO 2 - Variable declarations 
 			var positionX = 0;
+			var positionY = 0;
 			var speed = 10;
+			var speedY = 10;
 			var points = 0;
 			
 
@@ -78,14 +90,21 @@
 			*/
 			function update() {
 				positionX = positionX + speed;
-				moveBoxTo(positionX)
+				moveBoxTo(positionX, positionY)
+				positionY = positionY + speedY
+				
 				if (positionX > boardWidth) {
 					speed = -speed
 				};
 				if (positionX < 0) {
 					speed = -speed
 				};
-
+				if (positionY > boardHeight) {
+					speedY = -speedY
+				};
+				if (positionY < 0) {
+					speedY = -speedY
+				};
 			};
 
 			/* 
