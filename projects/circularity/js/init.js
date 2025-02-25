@@ -24,7 +24,7 @@ var init = function (window) {
         var circles = []; // variable to store all circles in an array
 
         // TODO 2 : Create a function that draws a circle 
-        function drawCircle() {
+        function drawCircle() { // the function to draw and maintain the circles
             circle = draw.randomCircleInArea(canvas, true, true, "#999", 2);
             physikz.addRandomVelocity(circle, canvas, 5, 5);
             view.addChild(circle);
@@ -33,7 +33,7 @@ var init = function (window) {
         }
 
         // TODO 3 / 7 : Call the drawCircle() function 
-        for (var i = 0; i <= 100; i++) {
+        for (var i = 0; i <= 100; i++) { // the loop to draw circles, and stops at 100
             drawCircle();
         }
         
@@ -63,9 +63,9 @@ var init = function (window) {
             game.checkCirclePosition(circles[4]);
             */
             // TODO 9 : Iterate over the array
-            for (var i = 0; i < circles.length; i++) {
-                physikz.updatePosition(circles[i]);
-                game.checkCirclePosition(circles[i]);
+            for (var i = 0; i < circles.length; i++) { // for loop used to update the position and to check for the circles position
+                physikz.updatePosition(circles[i]); // position update
+                game.checkCirclePosition(circles[i]); // position check
             }
             
         }
@@ -78,17 +78,17 @@ var init = function (window) {
         game.checkCirclePosition = function(circle) {
 
             // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
-            if ( circle.x > canvas.width ) {
-                circle.x = 0;
+            if ( circle.x > canvas.width ) { // checks for the right side
+                circle.x = 0; 
             }
             
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
             if ( circle.x < 0) {
-                circle.x = canvas.width;
+                circle.x = canvas.width; // checks for the left side
             } else if ( circle.y > canvas.height) {
-                circle.y = 0;
+                circle.y = 0; // checks for the top
             } else if ( circle.y < 0 ) {
-                circle.y = canvas.height;
+                circle.y = canvas.height; // checks for the bottom
             }
 
 
