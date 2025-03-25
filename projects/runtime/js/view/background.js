@@ -99,10 +99,10 @@ var background = function (window) {
             
             // TODO 4: Part 2 - Parallax
             for (var i = 0; i < buildings.length; i++) {
-                var building = buildings[i];
-                building.x -=1
-                if (building.x < 0){
-                    building.x = canvas.width + 200
+                var building = buildings[i]; // the individual index of thhe building array
+                building.x -=0.5 // subtracts from the buildings xpos
+                if (building.x < -200){ // checks if the building is off of the canvas
+                    building.x = canvas.width + 100 // rest x value to the other side of the canvas
                 }
               }
 
