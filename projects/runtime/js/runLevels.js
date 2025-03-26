@@ -29,11 +29,57 @@ var runLevels = function (window) {
       ObstaclesHitZone.addChild(obstacleImage); // adds the image to the hit zone
       obstacleImage.x = -25 // changes the x pos of the Obstacles image
       obstacleImage.y = -25 // changes the y pos of the Obstacles image
+      ObstaclesHitZone.rotationalVelocity = 10
     }
     
     createObstacles(400, groundY - 101, 25, 20)
     createObstacles(600, groundY - 101, 25, 30)
     createObstacles(800, groundY - 101, 25, 40)
+
+    
+    
+    function createEnemy (x, y, velocity, d, points){
+        var enemy = game.createGameItem("enemy", 25); // creates enemy came item and adds it to the game
+      var redSquare = draw.rect(50, 50, "red"); // creates a red square and store it in the variable red square
+      redSquare.x = -25; // offsets image from the hit zone
+      redSquare.y = -25; // offsets image from the hit zone
+      enemy.addChild(redSquare); // adds square to the variable
+      enemy.x = x; // x pos of enemy
+      enemy.y = y; // y pos of enemy
+      game.addGameItem(enemy); // adds enemy to game
+      enemy.velocityX = velocity // controls the enemy velocity
+      enemy.onPlayerCollision = function () {
+        game.changeIntegrity(d) // sets the amount of damage the enemy does
+        };
+      enemy.onProjectileCollision = function () {
+        game.increaseScore(points);
+        enemy.fadeOut(); // can also use shrink() and flyTo(x,y)
+      }
+    }
+
+    createEnemy(400, groundY-50, -1, -1, 10000)
+    createEnemy(2000, groundY-50, -3, -25, 100)
+    createEnemy(6000, groundY-101, -100, -1000, 5)
+
+
+    function createReward (x, y, velocity, points){
+      var reward = game.createGameItem("reward", 25); // creates reward came item and adds it to the game
+    var blueSquare = draw.rect(50, 50, "blue"); // creates a blue square and store it in the variable blue square
+    blueSquare.x = -25; // offsets image from the hit zone
+    blueSquare.y = -25; // offsets image from the hit zone
+    reward.addChild(blueSquare); // adds square to the variable
+    reward.x = x; // x pos of reward
+    reward.y = y; // y pos of reward
+    game.addGameItem(reward); // adds reward to game
+    reward.velocityX = velocity // controls the reward velocity
+    reward.onPlayerCollision = function () {
+      game.changeIntegrity(d) // sets the amount of damage the reward does
+      reward.shrink()
+      };
+    
+    }
+    createReward(800, groundY - 50, -4, 500)
+
     function startLevel() {
       // TODO 13 goes below here
 
