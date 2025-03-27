@@ -32,9 +32,7 @@ var runLevels = function (window) {
       ObstaclesHitZone.rotationalVelocity = 10
     }
     
-    createObstacles(400, groundY - 101, 25, 20)
-    createObstacles(600, groundY - 101, 25, 30)
-    createObstacles(800, groundY - 101, 25, 40)
+    
 
     
     
@@ -58,8 +56,8 @@ var runLevels = function (window) {
     }
 
     createEnemy(400, groundY-50, -1, -1, 10000)
-    createEnemy(2000, groundY-50, -3, -25, 100)
-    createEnemy(6000, groundY-101, -100, -1000, 5)
+    createEnemy(2000, groundY-50, -4, -25, 100)
+    createEnemy(2000, groundY-101, -5, -1000, 5)
 
 
     function createReward (x, y, velocity, points){
@@ -73,17 +71,50 @@ var runLevels = function (window) {
     game.addGameItem(reward); // adds reward to game
     reward.velocityX = velocity // controls the reward velocity
     reward.onPlayerCollision = function () {
-      game.changeIntegrity(d) // sets the amount of damage the reward does
+      game.increaseScore(points) // sets the amount of damage the reward does
       reward.shrink()
       };
     
     }
-    createReward(800, groundY - 50, -4, 500)
+    createReward(800, groundY - 100, -4, 500)
 
+    function createlevel (x, y, velocity, heals){
+      var reward = game.createGameItem("reward", 25); // creates reward came item and adds it to the game
+    var yellowSquare = draw.rect(50, 50, "yellow"); // creates a yellow square and store it in the variable yellow square
+    yellowSquare.x = -25; // offsets image from the hit zone
+    yellowSquare.y = -25; // offsets image from the hit zone
+    reward.addChild(yellowSquare); // adds square to the variable
+    reward.x = x; // x pos of reward
+    reward.y = y; // y pos of reward
+    game.addGameItem(reward); // adds reward to game
+    reward.velocityX = velocity // controls the reward velocity
+    reward.onPlayerCollision = function () {
+      game.changeIntegrity(heals) // sets the amount of damage the reward does
+      reward.shrink()
+      startLevel();
+      };
+    
+    }
+
+    createlevel(1500, groundY - 100, -2, 100)
     function startLevel() {
       // TODO 13 goes below here
+      
+      var level = levelData[currentLevel] // fetches the current level from the level data array and stores it in var level
+      var levelObjects = level.gameItems // retrive the array of gameItems and stores it in levelObjects
+
+      for (var i = 0; i < levelObjects. length; i++){
+        var element = levelObjects[i]
+
+        if (element.type === "sawblade") {
+          createObstacles(element.x, element.y, element.hitSize, element.damage);
+        }
 
 
+
+
+
+      }
 
       //////////////////////////////////////////////
       // DO NOT EDIT CODE BELOW HERE
