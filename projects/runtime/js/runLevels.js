@@ -18,26 +18,28 @@ var runLevels = function (window) {
 
     // TODOs 5 through 11 go here
     // BEGIN EDITING YOUR CODE HERE
-    function createObstacles(x , y, hitSize, damage){
+    function createObstacles(x , y, hitSize, damage, image, rotation){
       var hitZoneSize = hitSize; // define hitzone size, assigns to variable
       var damageFromObstacle = damage; // clarifys amount of damage
       var ObstaclesHitZone = game.createObstacle(hitZoneSize, damageFromObstacle); // creates obstcle hit zone using the size and damage parameters
       ObstaclesHitZone.x = x; // sets x cord of saw blade
       ObstaclesHitZone.y = y; // sets y cord of saw blade 
       game.addGameItem(ObstaclesHitZone); // adds the hitzone to the game
-      var obstacleImage = draw.bitmap("img/sawblade.png"); // draw the image bitmap and stores it
+      var obstacleImage = draw.bitmap(image); // draw the image bitmap and stores it
       ObstaclesHitZone.addChild(obstacleImage); // adds the image to the hit zone
       obstacleImage.x = -25 // changes the x pos of the Obstacles image
       obstacleImage.y = -25 // changes the y pos of the Obstacles image
-      ObstaclesHitZone.rotationalVelocity = 10
+      ObstaclesHitZone.rotationalVelocity = rotation
+      obstacleImage.scaleX = 1
+      obstacleImage.scaleY = 1
     }
     
     
 
     
     
-    function createEnemy (x, y, velocity, d, points){
-        var enemy = game.createGameItem("enemy", 25); // creates enemy came item and adds it to the game
+    function createEnemy (x, y, velocity, d, points){  
+      var enemy = game.createGameItem("enemy", 25); // creates enemy came item and adds it to the game
       var redSquare = draw.rect(50, 50, "red"); // creates a red square and store it in the variable red square
       redSquare.x = -25; // offsets image from the hit zone
       redSquare.y = -25; // offsets image from the hit zone
@@ -105,7 +107,10 @@ var runLevels = function (window) {
         var element = levelObjects[i]
 
         if (element.type === "sawblade") { // checks the type key value of the gameItems to determine which object to place
-          createObstacles(element.x, element.y, element.hitSize, element.damage); // if true, teh relavent function will be calleed
+          createObstacles(element.x, element.y, element.hitSize, element.damage, element.image, element.rotation); // if true, teh relavent function will be calleed
+        }
+        if (element.type === "FlyBot") { // checks the type key value of the gameItems to determine which object to place
+          createObstacles(element.x, element.y, element.hitSize, element.damage, element.image, element.rotation); // if true, teh relavent function will be calleed
         }
         if (element.type === "enemy") { // checks the type key value of the gameItems to determine which object to place
           createEnemy(element.x, element.y, element.velocity, element.damage, element.points); // if true, teh relavent function will be calleed
