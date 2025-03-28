@@ -55,9 +55,7 @@ var runLevels = function (window) {
       }
     }
 
-    createEnemy(400, groundY-50, -1, -1, 10000)
-    createEnemy(2000, groundY-50, -4, -25, 100)
-    createEnemy(2000, groundY-101, -5, -1000, 5)
+    
 
 
     function createReward (x, y, velocity, points){
@@ -76,9 +74,9 @@ var runLevels = function (window) {
       };
     
     }
-    createReward(800, groundY - 100, -4, 500)
+    
 
-    function createlevel (x, y, velocity, heals){
+    function createLevel (x, y, velocity, heals){
       var reward = game.createGameItem("reward", 25); // creates reward came item and adds it to the game
     var yellowSquare = draw.rect(50, 50, "yellow"); // creates a yellow square and store it in the variable yellow square
     yellowSquare.x = -25; // offsets image from the hit zone
@@ -96,7 +94,7 @@ var runLevels = function (window) {
     
     }
 
-    createlevel(1500, groundY - 100, -2, 100)
+    
     function startLevel() {
       // TODO 13 goes below here
       
@@ -106,8 +104,17 @@ var runLevels = function (window) {
       for (var i = 0; i < levelObjects. length; i++){
         var element = levelObjects[i]
 
-        if (element.type === "sawblade") {
-          createObstacles(element.x, element.y, element.hitSize, element.damage);
+        if (element.type === "sawblade") { // checks the type key value of the gameItems to determine which object to place
+          createObstacles(element.x, element.y, element.hitSize, element.damage); // if true, teh relavent function will be calleed
+        }
+        if (element.type === "enemy") { // checks the type key value of the gameItems to determine which object to place
+          createEnemy(element.x, element.y, element.velocity, element.damage, element.points); // if true, teh relavent function will be calleed
+        }
+        if (element.type === "reward") { // checks the type key value of the gameItems to determine which object to place
+          createReward(element.x, element.y, element.velocity, element.points); // if true, teh relavent function will be calleed
+        }
+        if (element.type === "level") { // checks the type key value of the gameItems to determine which object to place
+          createLevel(element.x, element.y, element.velocity, element.heals); // if true, teh relavent function will be calleed
         }
 
 
