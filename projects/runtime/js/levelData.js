@@ -15,19 +15,22 @@ var makeLevelData = function (window) {
         number: 1,
         speed: -3,
         gameItems: [
+          /*
           { type: "sawblade", x :400, y: groundY - 101, hitSize: 25, damage: 20, image: "img/sawblade.png", rotation: 10},
           { type: "sawblade", x: 600, y: groundY - 101, hitSize: 25, damage: 30, image: "img/sawblade.png", rotation: 10 },
           { type: "sawblade", x: 800, y: groundY - 101, hitSize: 25, damage: 40, image: "img/sawblade.png", rotation: 10 },
-          
-          { type: "FlyBot", x: 1000, y: groundY - 101, hitSize: 25, damage: 40, image: "img/The better flyboi.webp", rotation: 0},
+          */
+          { type: "FlyBot", x: 500, y: groundY - 101, hitSize: 25, damage: 40, image: "img/The better flyboi.webp", rotation: 0, xScale: 0.2, yScale: 0.2},
+          { type: "FlyBot", x: 750, y: groundY - 101, hitSize: 25, damage: 40, image: "img/The better flyboi.webp", rotation: 0, xScale: 0.2, yScale: 0.2},
+          { type: "FlyBot", x: 1000, y: groundY - 101, hitSize: 25, damage: 40, image: "img/The better flyboi.webp", rotation: 0, xScale: 0.2, yScale: 0.2},
 
-          { type: "enemy", x: 400, y: groundY-50, velocity: -1, damage: -1, points: 10000 },
-          { type: "enemy", x: 2000, y: groundY-50, velocity: -4, damage: -25, points: 100 },
-          { type: "enemy", x: 2000, y: groundY-101, velocity: -5, damage: -1000, points: 5 },
+          { type: "SmallGround", x: 2000, y: groundY-50, velocity: -3, damage: -25, points: 25, hitSize: 30, image: "img/Expendables.png", xScale: 0.7, yScale: 0.7, offsetX: -25, offsetY: -25},
+          { type: "SmallGround", x: 3000, y: groundY-50, velocity: -3, damage: -25, points: 25, hitSize: 30, image: "img/Expendables.png", xScale: 1, yScale: 1 },
+          { type: "SmallGround", x: 2500, y: groundY-50, velocity: -3, damage: -25, points: 25, hitSize: 30, image: "img/Expendables.png", xScale: 1, yScale: 1 },
 
           { type: "reward", x: 800, y: groundY-100, velocity: -4, points: 500},
 
-          { type: "level", x: 1500, y: groundY-100, velocity: -2, heals: 100},
+          { type: "level", x: 5000, y: groundY-100, velocity: -2, heals: 100},
         ],
       },
       {

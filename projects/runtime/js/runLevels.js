@@ -18,7 +18,7 @@ var runLevels = function (window) {
 
     // TODOs 5 through 11 go here
     // BEGIN EDITING YOUR CODE HERE
-    function createObstacles(x , y, hitSize, damage, image, rotation){
+    function createObstacles(x , y, hitSize, damage, image, rotation, xScale, yScale, offsetX, offsetY){
       var hitZoneSize = hitSize; // define hitzone size, assigns to variable
       var damageFromObstacle = damage; // clarifys amount of damage
       var ObstaclesHitZone = game.createObstacle(hitZoneSize, damageFromObstacle); // creates obstcle hit zone using the size and damage parameters
@@ -27,29 +27,31 @@ var runLevels = function (window) {
       game.addGameItem(ObstaclesHitZone); // adds the hitzone to the game
       var obstacleImage = draw.bitmap(image); // draw the image bitmap and stores it
       ObstaclesHitZone.addChild(obstacleImage); // adds the image to the hit zone
-      obstacleImage.x = -25 // changes the x pos of the Obstacles image
-      obstacleImage.y = -25 // changes the y pos of the Obstacles image
+      obstacleImage.x = offsetX // changes the x pos of the Obstacles image
+      obstacleImage.y = offsetY // changes the y pos of the Obstacles image
       ObstaclesHitZone.rotationalVelocity = rotation
-      obstacleImage.scaleX = 1
-      obstacleImage.scaleY = 1
+      obstacleImage.scaleX = xScale
+      obstacleImage.scaleY = yScale
     }
     
     
 
     
     
-    function createEnemy (x, y, velocity, d, points){  
-      var enemy = game.createGameItem("enemy", 25); // creates enemy came item and adds it to the game
-      var redSquare = draw.rect(50, 50, "red"); // creates a red square and store it in the variable red square
+    function createEnemy (x, y, velocity, damage, points, hitSize, image, xScale, yScale){  
+      var enemy = game.createGameItem("enemy", hitSize); // creates enemy came item and adds it to the game
+      var redSquare = draw.bitmap(image); // creates a red square and store it in the variable red square
       redSquare.x = -25; // offsets image from the hit zone
       redSquare.y = -25; // offsets image from the hit zone
       enemy.addChild(redSquare); // adds square to the variable
       enemy.x = x; // x pos of enemy
       enemy.y = y; // y pos of enemy
+      redSquare.scaleX = xScale
+      redSquare.scaleY = yScale
       game.addGameItem(enemy); // adds enemy to game
       enemy.velocityX = velocity // controls the enemy velocity
       enemy.onPlayerCollision = function () {
-        game.changeIntegrity(d) // sets the amount of damage the enemy does
+        game.changeIntegrity(damage) // sets the amount of damage the enemy does
         };
       enemy.onProjectileCollision = function () {
         game.increaseScore(points);
@@ -105,15 +107,15 @@ var runLevels = function (window) {
 
       for (var i = 0; i < levelObjects. length; i++){
         var element = levelObjects[i]
-
+        /*
         if (element.type === "sawblade") { // checks the type key value of the gameItems to determine which object to place
           createObstacles(element.x, element.y, element.hitSize, element.damage, element.image, element.rotation); // if true, teh relavent function will be calleed
-        }
+        } */
         if (element.type === "FlyBot") { // checks the type key value of the gameItems to determine which object to place
-          createObstacles(element.x, element.y, element.hitSize, element.damage, element.image, element.rotation); // if true, teh relavent function will be calleed
+          createObstacles(element.x, element.y, element.hitSize, element.damage, element.image, element.rotation, element.xScale, element.yScale); // if true, teh relavent function will be calleed
         }
-        if (element.type === "enemy") { // checks the type key value of the gameItems to determine which object to place
-          createEnemy(element.x, element.y, element.velocity, element.damage, element.points); // if true, teh relavent function will be calleed
+        if (element.type === "SmallGround") { // checks the type key value of the gameItems to determine which object to place
+          createEnemy(element.x, element.y, element.velocity, element.damage, element.points, element.hitSize, element.image, element.xScale, element.yScale, element.offsetX, element.offsetY); // if true, teh relavent function will be calleed
         }
         if (element.type === "reward") { // checks the type key value of the gameItems to determine which object to place
           createReward(element.x, element.y, element.velocity, element.points); // if true, teh relavent function will be calleed
