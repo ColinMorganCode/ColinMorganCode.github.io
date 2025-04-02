@@ -38,11 +38,11 @@ var runLevels = function (window) {
 
     
     
-    function createEnemy (x, y, velocity, damage, points, hitSize, image, xScale, yScale){  
+    function createEnemy (x, y, velocity, damage, points, hitSize, image, xScale, yScale, offsetX, offsetY){  
       var enemy = game.createGameItem("enemy", hitSize); // creates enemy came item and adds it to the game
       var redSquare = draw.bitmap(image); // creates a red square and store it in the variable red square
-      redSquare.x = -25; // offsets image from the hit zone
-      redSquare.y = -25; // offsets image from the hit zone
+      redSquare.x = offsetX; // offsets image from the hit zone
+      redSquare.y = offsetY; // offsets image from the hit zone
       enemy.addChild(redSquare); // adds square to the variable
       enemy.x = x; // x pos of enemy
       enemy.y = y; // y pos of enemy
@@ -62,14 +62,16 @@ var runLevels = function (window) {
     
 
 
-    function createReward (x, y, velocity, points){
+    function createReward (x, y, velocity, points, image, xScale, yScale, offsetX, offsetY){
       var reward = game.createGameItem("reward", 25); // creates reward came item and adds it to the game
-    var blueSquare = draw.rect(50, 50, "blue"); // creates a blue square and store it in the variable blue square
-    blueSquare.x = -25; // offsets image from the hit zone
-    blueSquare.y = -25; // offsets image from the hit zone
+    var blueSquare = draw.bitmap(image); // creates a blue square and store it in the variable blue square
+    blueSquare.x = offsetX; // offsets image from the hit zone
+    blueSquare.y = offsetY; // offsets image from the hit zone
     reward.addChild(blueSquare); // adds square to the variable
     reward.x = x; // x pos of reward
     reward.y = y; // y pos of reward
+    blueSquare.scaleX = xScale;
+    blueSquare.scaleY = yScale;
     game.addGameItem(reward); // adds reward to game
     reward.velocityX = velocity // controls the reward velocity
     reward.onPlayerCollision = function () {
@@ -111,14 +113,17 @@ var runLevels = function (window) {
         if (element.type === "sawblade") { // checks the type key value of the gameItems to determine which object to place
           createObstacles(element.x, element.y, element.hitSize, element.damage, element.image, element.rotation); // if true, teh relavent function will be calleed
         } */
-        if (element.type === "FlyBot") { // checks the type key value of the gameItems to determine which object to place
-          createObstacles(element.x, element.y, element.hitSize, element.damage, element.image, element.rotation, element.xScale, element.yScale); // if true, teh relavent function will be calleed
+        if (element.type === "FlyBotOBJ") { // checks the type key value of the gameItems to determine which object to place
+          createObstacles(element.x, element.y, element.hitSize, element.damage, element.image, element.rotation, element.xScale, element.yScale, element.offsetX, element.offsetY); // if true, teh relavent function will be calleed
+        }
+        if (element.type === "GroundOuchOBJ") { // checks the type key value of the gameItems to determine which object to place
+          createObstacles(element.x, element.y, element.hitSize, element.damage, element.image, element.rotation, element.xScale, element.yScale, element.offsetX, element.offsetY); // if true, teh relavent function will be calleed
         }
         if (element.type === "SmallGround") { // checks the type key value of the gameItems to determine which object to place
           createEnemy(element.x, element.y, element.velocity, element.damage, element.points, element.hitSize, element.image, element.xScale, element.yScale, element.offsetX, element.offsetY); // if true, teh relavent function will be calleed
         }
-        if (element.type === "reward") { // checks the type key value of the gameItems to determine which object to place
-          createReward(element.x, element.y, element.velocity, element.points); // if true, teh relavent function will be calleed
+        if (element.type === "rock1") { // checks the type key value of the gameItems to determine which object to place
+          createReward(element.x, element.y, element.velocity, element.points, element.image, element.xScale, element.yScale, element.offsetX, element.offsetY); // if true, teh relavent function will be calleed
         }
         if (element.type === "level") { // checks the type key value of the gameItems to determine which object to place
           createLevel(element.x, element.y, element.velocity, element.heals); // if true, teh relavent function will be calleed
