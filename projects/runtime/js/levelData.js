@@ -21,20 +21,31 @@ var makeLevelData = function (window) {
           { type: "sawblade", x: 800, y: groundY - 101, hitSize: 25, damage: 40, image: "img/sawblade.png", rotation: 10 },
           */
           { type: "FlyBotOBJ", x: 500, y: groundY - 101, hitSize: 25, damage: 20, image: "img/The better flyboi.webp", rotation: 0, xScale: 0.2, yScale: 0.2, offsetX: -25, offsetY: -25},
-          { type: "FlyBotOBJ", x: 750, y: groundY - 101, hitSize: 25, damage: 20, image: "img/The better flyboi.webp", rotation: 0, xScale: 0.2, yScale: 0.2, offsetX: -25, offsetY: -25},
           { type: "FlyBotOBJ", x: 1000, y: groundY - 101, hitSize: 25, damage: 20, image: "img/The better flyboi.webp", rotation: 0, xScale: 0.2, yScale: 0.2, offsetX: -25, offsetY: -25},
+          { type: "FlyBotOBJ", x: 1500, y: groundY - 101, hitSize: 25, damage: 20, image: "img/The better flyboi.webp", rotation: 0, xScale: 0.2, yScale: 0.2, offsetX: -25, offsetY: -25},
 
-          { type: "GroundOuchOBJ", x: 1000, y: groundY, hitSize: 25, damage: 20, image: "img/Ground explody.png", rotation: 0, xScale: 0.2, yScale: 0.2, offsetX: -35, offsetY: -25},
+          { type: "GroundOuchOBJ", x: 750, y: groundY, hitSize: 25, damage: 20, image: "img/Ground explody.png", rotation: 0, xScale: 0.2, yScale: 0.2, offsetX: -35, offsetY: -25},
+          { type: "GroundOuchOBJ", x: 1250, y: groundY, hitSize: 25, damage: 20, image: "img/Ground explody.png", rotation: 0, xScale: 0.2, yScale: 0.2, offsetX: -35, offsetY: -25},
+          { type: "GroundOuchOBJ", x: 2000, y: groundY, hitSize: 25, damage: 20, image: "img/Ground explody.png", rotation: 0, xScale: 0.2, yScale: 0.2, offsetX: -35, offsetY: -25},
+          { type: "GroundOuchOBJ", x: 2200, y: groundY, hitSize: 25, damage: 20, image: "img/Ground explody.png", rotation: 0, xScale: 0.2, yScale: 0.2, offsetX: -35, offsetY: -25},
+          { type: "GroundOuchOBJ", x: 2400, y: groundY, hitSize: 25, damage: 20, image: "img/Ground explody.png", rotation: 0, xScale: 0.2, yScale: 0.2, offsetX: -35, offsetY: -25},
 
-          { type: "SmallGround", x: 2000, y: groundY-50, velocity: -3, damage: -25, points: 25, hitSize: 30, image: "img/Expendables.png", xScale: 0.7, yScale: 0.7, offsetX: -75, offsetY: -75},
-          { type: "SmallGround", x: 3000, y: groundY-50, velocity: -3, damage: -25, points: 25, hitSize: 30, image: "img/Expendables.png", xScale: 0.7, yScale: 0.7, offsetX: -75, offsetY: -75},
-          { type: "SmallGround", x: 2500, y: groundY-50, velocity: -3, damage: -25, points: 25, hitSize: 30, image: "img/Expendables.png", xScale: 0.7, yScale: 0.7, offsetX: -75, offsetY: -75},
+          { type: "SmallGround", x: 2000, y: groundY-50, velocity: -5, damage: -25, points: 25, hitSize: 30, image: "img/Expendables.png", xScale: 0.7, yScale: 0.7, offsetX: -75, offsetY: -75},
+          { type: "SmallGround", x: 2500, y: groundY-50, velocity: -5, damage: -25, points: 25, hitSize: 30, image: "img/Expendables.png", xScale: 0.7, yScale: 0.7, offsetX: -75, offsetY: -75},
+          { type: "SmallGround", x: 3000, y: groundY-50, velocity: -5, damage: -25, points: 25, hitSize: 30, image: "img/Expendables.png", xScale: 0.7, yScale: 0.7, offsetX: -75, offsetY: -75},
+          { type: "SmallGround", x: 2000, y: groundY-50, velocity: -6, damage: -25, points: 25, hitSize: 30, image: "img/Expendables.png", xScale: 0.7, yScale: 0.7, offsetX: -75, offsetY: -75},
+          { type: "SmallGround", x: 2500, y: groundY-50, velocity: -6, damage: -25, points: 25, hitSize: 30, image: "img/Expendables.png", xScale: 0.7, yScale: 0.7, offsetX: -75, offsetY: -75},
+          { type: "SmallGround", x: 3000, y: groundY-50, velocity: -6, damage: -25, points: 25, hitSize: 30, image: "img/Expendables.png", xScale: 0.7, yScale: 0.7, offsetX: -75, offsetY: -75},
 
-          { type: "rock1", x: 800, y: groundY - 10, velocity: -4, points: 500, image: "img/Rock 1.png", xScale: 0.5, yScale: 0.5, offsetX: -55, offsetY: -70},
+          { type: "Shooty", x: 3500, y: groundY-60, velocity: -2, damage: 0, points: 100, hitSize: 30, image: "img/Mid tier.png", xScale: 0.7, yScale: 0.7, offsetX: -75, offsetY: -75},
+
+          { type: "ShootyProjectile", x: 3500, y: groundY-101, velocity: -2, damage: 0, points: 100, hitSize: 30, image: "img/Pew boi.png", xScale: 0.3, yScale: 0.3, offsetX: -25, offsetY: -25},
+
+          { type: "rock1", x: 1725, y: groundY - 10, velocity: -2, points: 500, image: "img/Rock 1.png", xScale: 0.5, yScale: 0.5, offsetX: -55, offsetY: -70},
           { type: "rock1", x: 900, y: groundY - 10, velocity: -4, points: 500, image: "img/rock 2.png", xScale: 0.5, yScale: 0.5, offsetX: -55, offsetY: -70},
           { type: "rock1", x: 1000, y: groundY - 10, velocity: -4, points: 500, image: "img/Rock 3.png", xScale: 0.5, yScale: 0.5, offsetX: -55, offsetY: -70},
 
-          { type: "level", x: 5000, y: groundY-100, velocity: -2, heals: 100},
+          { type: "level", x: 4000, y: groundY-100, velocity: -2, heals: 100},
         ],
       },
       {

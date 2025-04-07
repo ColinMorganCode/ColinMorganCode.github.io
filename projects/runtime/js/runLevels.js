@@ -122,6 +122,12 @@ var runLevels = function (window) {
         if (element.type === "SmallGround") { // checks the type key value of the gameItems to determine which object to place
           createEnemy(element.x, element.y, element.velocity, element.damage, element.points, element.hitSize, element.image, element.xScale, element.yScale, element.offsetX, element.offsetY); // if true, teh relavent function will be calleed
         }
+        if (element.type === "Shooty") { // checks the type key value of the gameItems to determine which object to place
+          createEnemy(element.x, element.y, element.velocity, element.damage, element.points, element.hitSize, element.image, element.xScale, element.yScale, element.offsetX, element.offsetY); // if true, teh relavent function will be calleed
+        }
+        if (element.type === "ShootyProjectile") { // checks the type key value of the gameItems to determine which object to place
+          createEnemy(element.x, element.y, element.velocity, element.damage, element.points, element.hitSize, element.image, element.xScale, element.yScale, element.offsetX, element.offsetY); // if true, teh relavent function will be calleed
+        }
         if (element.type === "rock1") { // checks the type key value of the gameItems to determine which object to place
           createReward(element.x, element.y, element.velocity, element.points, element.image, element.xScale, element.yScale, element.offsetX, element.offsetY); // if true, teh relavent function will be calleed
         }
