@@ -59,6 +59,27 @@ var runLevels = function (window) {
       }
     }
 
+    function createShooty (x, y, velocity, damage, points, hitSize, image, xScale, yScale, offsetX, offsetY){  
+      var enemy = game.createGameItem("enemy", hitSize); // creates enemy came item and adds it to the game
+      var redSquare = draw.bitmap(image); // creates a red square and store it in the variable red square
+      redSquare.x = offsetX; // offsets image from the hit zone
+      redSquare.y = offsetY; // offsets image from the hit zone
+      enemy.addChild(redSquare); // adds square to the variable
+      enemy.x = x; // x pos of enemy
+      enemy.y = y; // y pos of enemy
+      redSquare.scaleX = xScale
+      redSquare.scaleY = yScale
+      game.addGameItem(enemy); // adds enemy to game
+      enemy.velocityX = velocity // controls the enemy velocity
+      enemy.onPlayerCollision = function () {
+        game.changeIntegrity(damage) // sets the amount of damage the enemy does
+        };
+      enemy.onProjectileCollision = function () {
+        game.increaseScore(points);
+        enemy.fadeOut(); // can also use shrink() and flyTo(x,y)
+      } 
+    }
+
     
 
 
@@ -123,12 +144,12 @@ var runLevels = function (window) {
           createEnemy(element.x, element.y, element.velocity, element.damage, element.points, element.hitSize, element.image, element.xScale, element.yScale, element.offsetX, element.offsetY); // if true, teh relavent function will be calleed
         }
         if (element.type === "Shooty") { // checks the type key value of the gameItems to determine which object to place
-          createEnemy(element.x, element.y, element.velocity, element.damage, element.points, element.hitSize, element.image, element.xScale, element.yScale, element.offsetX, element.offsetY); // if true, teh relavent function will be calleed
+          createShooty(element.x, element.y, element.velocity, element.damage, element.points, element.hitSize, element.image, element.xScale, element.yScale, element.offsetX, element.offsetY); // if true, teh relavent function will be calleed
         }
         if (element.type === "ShootyProjectile") { // checks the type key value of the gameItems to determine which object to place
           createEnemy(element.x, element.y, element.velocity, element.damage, element.points, element.hitSize, element.image, element.xScale, element.yScale, element.offsetX, element.offsetY); // if true, teh relavent function will be calleed
         }
-        if (element.type === "rock1") { // checks the type key value of the gameItems to determine which object to place
+        if (element.type === "rocks") { // checks the type key value of the gameItems to determine which object to place
           createReward(element.x, element.y, element.velocity, element.points, element.image, element.xScale, element.yScale, element.offsetX, element.offsetY); // if true, teh relavent function will be calleed
         }
         if (element.type === "level") { // checks the type key value of the gameItems to determine which object to place
