@@ -3,7 +3,7 @@ var runLevels = function (window) {
 
   var draw = window.opspark.draw;
   var createjs = window.createjs;
-  let currentLevel = 0;
+  let currentLevel = 1;
 
   window.opspark.runLevelInGame = function (game) {
     // some useful constants
@@ -155,8 +155,9 @@ var runLevels = function (window) {
         if (element.type === "level") { // checks the type key value of the gameItems to determine which object to place
           createLevel(element.x, element.y, element.velocity, element.heals); // if true, teh relavent function will be calleed
         }
-
-
+        if (element.type === "Final") { // checks the type key value of the gameItems to determine which object to place
+          createEnemy(element.x, element.y, element.velocity, element.damage, element.points, element.hitSize, element.image, element.xScale, element.yScale, element.offsetX, element.offsetY); // if true, teh relavent function will be calleed
+        }
 
 
 
