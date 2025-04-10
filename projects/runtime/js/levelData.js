@@ -43,9 +43,7 @@ var makeLevelData = function (window) {
           { type: "ShootyProjectile", x: 3550, y: groundY- 5, velocity: -2.5, damage: -50, points: 100, hitSize: 25, image: "img/Pew boi.png", xScale: 0.3, yScale: 0.3, offsetX: -25, offsetY: -25},
           { type: "ShootyProjectile", x: 3850, y: groundY-101, velocity: -2.5, damage: -50, points: 100, hitSize: 25, image: "img/Pew boi.png", xScale: 0.3, yScale: 0.3, offsetX: -25, offsetY: -25},
 
-          { type: "rocks", x: 1725, y: groundY - 10, velocity: -2, points: 500, image: "img/Rock 1.png", xScale: 0.5, yScale: 0.5, offsetX: -55, offsetY: -70},
-          { type: "rocks", x: 3750, y: groundY - 10, velocity: -2, points: 500, image: "img/rock 2.png", xScale: 0.5, yScale: 0.5, offsetX: -55, offsetY: -70},
-          { type: "rocks", x: 1000, y: groundY - 10, velocity: -4, points: 500, image: "img/Rock 3.png", xScale: 0.5, yScale: 0.5, offsetX: -55, offsetY: -70},
+          { type: "rocks", x: 3750, y: groundY - 10, velocity: -2, points: 500, image: "img/Rock 1.png", xScale: 0.5, yScale: 0.5, offsetX: -55, offsetY: -70},
 
           { type: "level", x: 4000, y: groundY-100, velocity: -2, heals: 100},
         ],
@@ -102,10 +100,22 @@ var makeLevelData = function (window) {
           { type: "ShootyProjectile", x: 5000, y: groundY-101, velocity: -2.5, damage: -50, points: 100, hitSize: 25, image: "img/Pew boi.png", xScale: 0.3, yScale: 0.3, offsetX: -25, offsetY: -25},
           { type: "ShootyProjectile", x: 5250, y: groundY-101, velocity: -2.5, damage: -50, points: 100, hitSize: 25, image: "img/Pew boi.png", xScale: 0.3, yScale: 0.3, offsetX: -25, offsetY: -25},
           { type: "ShootyProjectile", x: 5500, y: groundY-101, velocity: -2.5, damage: -50, points: 100, hitSize: 25, image: "img/Pew boi.png", xScale: 0.3, yScale: 0.3, offsetX: -25, offsetY: -25},
-          
-          { type: "Final", x: 5999, y: groundY-50, velocity: -2, damage: -100, points: 25, hitSize: 50, image: "img/Final Boi.png", xScale: 2.5, yScale: 2, offsetX: -300, offsetY: -270, health: 100},        
+         
+          { type: "rocks", x: 5300, y: groundY - 10, velocity: -2, points: 500, image: "img/rock 2.png", xScale: 0.5, yScale: 0.5, offsetX: -55, offsetY: -70},
+
+          { type: "level", x: 5500, y: groundY-100, velocity: -2, heals: 100},
         ],
       },
+      {
+        name: "Robot Finale",
+        number: 3,
+        speed: -3,
+        gameItems: [
+          { type: "Final", x: 1000, y: groundY-50, velocity: -2, damage: -100, points: 25, hitSize: 50, image: "img/Final Boi.png", xScale: 2.5, yScale: 2, offsetX: -300, offsetY: -270, health: 100},
+          { type: "rocks", x: 4250, y: groundY - 10, velocity: -4, points: 500, image: "img/Rock 3.png", xScale: 0.5, yScale: 0.5, offsetX: -55, offsetY: -70},
+        ]
+      }
+
     ];
     window.opspark.levelData = levelData;
   };

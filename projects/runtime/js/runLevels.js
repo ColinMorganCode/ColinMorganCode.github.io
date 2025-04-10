@@ -3,7 +3,7 @@ var runLevels = function (window) {
 
   var draw = window.opspark.draw;
   var createjs = window.createjs;
-  let currentLevel = 1;
+  let currentLevel = 0;
 
   window.opspark.runLevelInGame = function (game) {
     // some useful constants
@@ -149,7 +149,7 @@ var runLevels = function (window) {
             hits = hits + 1;
             game.increaseScore(points);
             boss.shrink();
-            createBoss(x + 100, y, velocity, damage, points, hitsize, image, xScale, yScale, offsetX, offsetY, health - hits*50)
+            createBoss(x + 300, y, velocity, damage, points, hitsize, image, xScale, yScale, offsetX, offsetY, health - hits*50)
         }
     }
     }
