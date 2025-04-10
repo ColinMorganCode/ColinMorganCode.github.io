@@ -59,7 +59,7 @@ var makeLevelData = function (window) {
           { type: "sawblade", x :400, y: groundY - 101, hitSize: 25, damage: 20, image: "img/sawblade.png"},
           { type: "sawblade", x: 600, y: groundY - 101, hitSize: 25, damage: 30, image: "img/sawblade.png" },
           { type: "sawblade", x: 800, y: groundY - 101, hitSize: 25, damage: 40, image: "img/sawblade.png" },
-           */
+          */
           { type: "GroundOuchOBJ", x: 500, y: groundY, hitSize: 25, damage: 20, image: "img/Ground explody.png", rotation: 0, xScale: 0.2, yScale: 0.2, offsetX: -35, offsetY: -25},
           { type: "GroundOuchOBJ", x: 1250, y: groundY, hitSize: 25, damage: 20, image: "img/Ground explody.png", rotation: 0, xScale: 0.2, yScale: 0.2, offsetX: -35, offsetY: -25},
           { type: "GroundOuchOBJ", x: 2000, y: groundY, hitSize: 25, damage: 20, image: "img/Ground explody.png", rotation: 0, xScale: 0.2, yScale: 0.2, offsetX: -35, offsetY: -25},
@@ -102,8 +102,8 @@ var makeLevelData = function (window) {
           { type: "ShootyProjectile", x: 5000, y: groundY-101, velocity: -2.5, damage: -50, points: 100, hitSize: 25, image: "img/Pew boi.png", xScale: 0.3, yScale: 0.3, offsetX: -25, offsetY: -25},
           { type: "ShootyProjectile", x: 5250, y: groundY-101, velocity: -2.5, damage: -50, points: 100, hitSize: 25, image: "img/Pew boi.png", xScale: 0.3, yScale: 0.3, offsetX: -25, offsetY: -25},
           { type: "ShootyProjectile", x: 5500, y: groundY-101, velocity: -2.5, damage: -50, points: 100, hitSize: 25, image: "img/Pew boi.png", xScale: 0.3, yScale: 0.3, offsetX: -25, offsetY: -25},
-
-          { type: "Final", x: 5000, y: groundY-50, velocity: -8, damage: -25, points: 25, hitSize: 50, image: "img/Final Boi.png", xScale: 2.5, yScale: 2, offsetX: -300, offsetY: -275},        
+          
+          { type: "Final", x: 5999, y: groundY-50, velocity: -2, damage: -100, points: 25, hitSize: 50, image: "img/Final Boi.png", xScale: 2.5, yScale: 2, offsetX: -300, offsetY: -270, health: 100},        
         ],
       },
     ];

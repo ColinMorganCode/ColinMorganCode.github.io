@@ -121,7 +121,38 @@ var runLevels = function (window) {
     
     }
 
-    
+    function createBoss(x, y, velocity, damage, points, hitsize, image, xScale, yScale, offsetX, offsetY, health){
+      var hits = 0;// counts the # of times projecile hits boss
+      var boss = game.createGameItem("Final", hitsize);//creates enemy and adds it to game
+      var bossImage = draw.bitmap(image);//creates red square and stores it in var bossimage
+      bossImage.x = offsetX;//offsets image from the hitzone by -25 pixels
+      bossImage.y = offsetY;//offsets image from the hitzone by -25 pixels
+      boss.addChild(bossImage);//add bossimage as child to boss var
+      boss.x = x;// sets boss xpos
+      boss.y = y;//sets boss ypos
+      game.addGameItem(boss);//adds boss to game
+      boss.velocityX = velocity;//controls boss speed by updating boss xpos
+      bossImage.scaleX = xScale;
+      bossImage.scaleY = yScale;
+      boss.velocityY;//controls ypos
+      boss.rotationalVelocity;//controls rotational spin
+      boss.onPlayerCollision = function () {
+        game.increaseScore(points)
+        game.changeIntegrity(damage);//subtracts 100 health from hallebots HUD
+      };
+
+      boss.onProjectileCollision = function() {
+        if (health === 0) {
+            boss.shrink();
+        }
+        else {
+            hits = hits + 1;
+            game.increaseScore(points);
+            boss.shrink();
+            createBoss(x + 100, y, velocity, damage, points, hitsize, image, xScale, yScale, offsetX, offsetY, health - hits*50)
+        }
+    }
+    }
     function startLevel() {
       // TODO 13 goes below here
       
@@ -156,7 +187,7 @@ var runLevels = function (window) {
           createLevel(element.x, element.y, element.velocity, element.heals); // if true, teh relavent function will be calleed
         }
         if (element.type === "Final") { // checks the type key value of the gameItems to determine which object to place
-          createEnemy(element.x, element.y, element.velocity, element.damage, element.points, element.hitSize, element.image, element.xScale, element.yScale, element.offsetX, element.offsetY); // if true, teh relavent function will be calleed
+          createBoss(element.x, element.y, element.velocity, element.damage, element.points, element.hitSize, element.image, element.xScale, element.yScale, element.offsetX, element.offsetY, element.health); // if true, teh relavent function will be calleed
         }
 
 
