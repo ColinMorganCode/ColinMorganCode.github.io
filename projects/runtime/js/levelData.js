@@ -813,7 +813,7 @@ var makeLevelData = function (window) {
             offsetX: -25,
             offsetY: -25,
           },
-
+          //collectable
           {
             type: "rocks",
             x: 5300,
@@ -826,7 +826,7 @@ var makeLevelData = function (window) {
             offsetX: -55,
             offsetY: -70,
           },
-
+          //level change
           {
             type: "level",
             x: 5500,
@@ -836,8 +836,8 @@ var makeLevelData = function (window) {
             image: "img/images.png",
             xScale: 0.5,
             yScale: 0.5,
-            offsetX: -55,
-            offsetY: -70,
+            offsetX: -50,
+            offsetY: -12,
           },
         ],
       },
@@ -846,6 +846,7 @@ var makeLevelData = function (window) {
         number: 3,
         speed: -3,
         gameItems: [
+          //boss
           {
             type: "Final",
             x: 1000,
@@ -861,6 +862,7 @@ var makeLevelData = function (window) {
             offsetY: -270,
             health: 100,
           },
+          //collectable
           {
             type: "rocks",
             x: 4250,
