@@ -103,14 +103,16 @@ var runLevels = function (window) {
     }
     
 
-    function createLevel (x, y, velocity, heals){
+    function createLevel (x, y, velocity, heals, image, xScale, yScale, offsetX, offsetY){
       var reward = game.createGameItem("reward", 25); // creates reward came item and adds it to the game
-    var yellowSquare = draw.rect(50, 50, "yellow"); // creates a yellow square and store it in the variable yellow square
-    yellowSquare.x = -25; // offsets image from the hit zone
-    yellowSquare.y = -25; // offsets image from the hit zone
+    var yellowSquare = draw.bitmap(image); // creates a yellow square and store it in the variable yellow square
+    yellowSquare.x = offsetX; // offsets image from the hit zone
+    yellowSquare.y = offsetY; // offsets image from the hit zone
     reward.addChild(yellowSquare); // adds square to the variable
     reward.x = x; // x pos of reward
     reward.y = y; // y pos of reward
+    yellowSquare.scaleX = xScale;
+    yellowSquare.scaleY = yScale
     game.addGameItem(reward); // adds reward to game
     reward.velocityX = velocity // controls the reward velocity
     reward.onPlayerCollision = function () {
@@ -184,7 +186,7 @@ var runLevels = function (window) {
           createReward(element.x, element.y, element.velocity, element.points, element.image, element.xScale, element.yScale, element.offsetX, element.offsetY); // if true, teh relavent function will be calleed
         }
         if (element.type === "level") { // checks the type key value of the gameItems to determine which object to place
-          createLevel(element.x, element.y, element.velocity, element.heals); // if true, teh relavent function will be calleed
+          createLevel(element.x, element.y, element.velocity, element.heals, element.image, element.xScale, element.yScale, element.offsetX, element.offsetY); // if true, teh relavent function will be calleed
         }
         if (element.type === "Final") { // checks the type key value of the gameItems to determine which object to place
           createBoss(element.x, element.y, element.velocity, element.damage, element.points, element.hitSize, element.image, element.xScale, element.yScale, element.offsetX, element.offsetY, element.health); // if true, teh relavent function will be calleed

@@ -45,7 +45,7 @@ var makeLevelData = function (window) {
 
           { type: "rocks", x: 3750, y: groundY - 10, velocity: -2, points: 500, image: "img/Rock 1.png", xScale: 0.5, yScale: 0.5, offsetX: -55, offsetY: -70},
 
-          { type: "level", x: 4000, y: groundY-100, velocity: -2, heals: 100},
+          { type: "level", x: 4000, y: groundY-100, velocity: -2, heals: 100, image: "img/images.png", xScale: 0.5, yScale: 0.5, offsetX: -50, offsetY: -12},
         ],
       },
       {
@@ -103,7 +103,7 @@ var makeLevelData = function (window) {
          
           { type: "rocks", x: 5300, y: groundY - 10, velocity: -2, points: 500, image: "img/rock 2.png", xScale: 0.5, yScale: 0.5, offsetX: -55, offsetY: -70},
 
-          { type: "level", x: 5500, y: groundY-100, velocity: -2, heals: 100},
+          { type: "level", x: 5500, y: groundY-100, velocity: -2, heals: 100, image: "img/images.png", xScale: 0.5, yScale: 0.5, offsetX: -55, offsetY: -70},
         ],
       },
       {
